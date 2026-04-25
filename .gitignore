@@ -1,0 +1,16 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Environment Variables (CRITICAL: Do not commit API keys!)
+.env
+
+# Logs
+*.log
+!submission_logs.txt
+
+# OS Files
+.DS_Store

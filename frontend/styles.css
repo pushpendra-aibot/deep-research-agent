@@ -1,0 +1,150 @@
+/* Base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0a0a14;
+  color: #e2e8f0;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.app { max-width: 860px; margin: 0 auto; }
+
+/* Header */
+header { text-align: center; padding: 40px 0 28px; }
+header h1 { font-size: 28px; font-weight: 800; color: #f1f5f9; margin-bottom: 6px; }
+header p  { color: #64748b; font-size: 14px; }
+
+/* Input */
+.input-panel { display: flex; gap: 12px; margin-bottom: 20px; }
+
+textarea {
+  flex: 1;
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  color: #e2e8f0;
+  font-size: 15px;
+  padding: 14px 16px;
+  resize: none;
+  transition: border-color 0.2s;
+}
+textarea:focus { outline: none; border-color: #7c3aed; }
+textarea::placeholder { color: #334155; }
+
+button#research-btn {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 0 24px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+button#research-btn:hover:not(:disabled) { background: #6d28d9; }
+button#research-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.hidden { display: none !important; }
+
+/* Feed Panel */
+.feed-panel {
+  background: #0d1117;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #1e293b;
+  background: #111827;
+}
+.feed-title    { font-size: 13px; font-weight: 600; color: #f1f5f9; }
+.iteration-count { font-size: 11px; color: #475569; }
+
+.feed-items {
+  max-height: 420px;
+  overflow-y: auto;
+  padding: 10px 0;
+}
+
+.feed-item { padding: 8px 16px; border-bottom: 1px solid #0f1723; }
+.feed-item:last-child { border-bottom: none; }
+
+.feed-item.thinking .feed-message { color: #64748b; font-size: 12px; font-style: italic; }
+.feed-item.done     .feed-message { color: #22c55e; font-size: 12px; }
+.feed-item.error    .feed-message { color: #ef4444; font-size: 12px; }
+
+/* Tool Call Items */
+.feed-item.tool-call { padding: 10px 16px; }
+
+.feed-item-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tool-icon  { font-size: 16px; }
+.tool-label { font-size: 12px; font-weight: 600; color: #cbd5e1; }
+.tool-arg   { font-size: 11px; color: #7c3aed; flex: 1;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.feed-spinner { font-size: 13px; color: #475569;
+  animation: spin 1s linear infinite; }
+.feed-item.resolved .feed-spinner { animation: none; color: #22c55e; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.tool-result-preview {
+  padding-top: 4px;
+  padding-left: 26px;
+  font-size: 11px;
+  color: #475569;
+  line-height: 1.5;
+}
+.result-link { color: #3b82f6; font-size: 11px; }
+
+/* Report Panel */
+.report-panel {
+  background: #0d1117;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #1e293b;
+  background: #111827;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.report-actions { display: flex; gap: 8px; }
+.btn-ghost {
+  background: none; border: 1px solid #1e293b;
+  color: #64748b; padding: 4px 10px; border-radius: 6px;
+  font-size: 11px; cursor: pointer;
+}
+.btn-ghost:hover { border-color: #334155; color: #94a3b8; }
+
+.report-content {
+  padding: 20px 24px;
+  line-height: 1.7;
+  font-size: 14px;
+}
+.report-content h1 { font-size: 20px; color: #f1f5f9; margin: 0 0 12px; }
+.report-content h2 { font-size: 15px; color: #cbd5e1; margin: 20px 0 8px;
+  padding-bottom: 4px; border-bottom: 1px solid #1e293b; }
+.report-content h3 { font-size: 13px; color: #94a3b8; margin: 14px 0 6px; }
+.report-content li { margin-left: 20px; margin-bottom: 4px; color: #94a3b8; }
+.report-content strong { color: #e2e8f0; }

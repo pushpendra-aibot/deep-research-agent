@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Research Agent</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Header -->
+    <header>
+      <h1>🔬 AI Research Agent</h1>
+      <p>Ask anything. Watch the agent research it live.</p>
+    </header>
+
+    <!-- Input -->
+    <div class="input-panel" id="input-panel">
+      <textarea
+        id="query-input"
+        placeholder="What is the state of reasoning models in 2026?"
+        rows="3"
+      ></textarea>
+      <button id="research-btn" onclick="startResearch()">
+        Research ▶
+      </button>
+    </div>
+
+    <!-- Live Tool Feed -->
+    <div class="feed-panel hidden" id="feed-panel">
+      <div class="feed-header">
+        <span class="feed-title">🤖 Agent Working</span>
+        <span class="iteration-count" id="iteration-count">Step 0</span>
+      </div>
+      <div class="feed-items" id="feed-items"></div>
+    </div>
+
+    <!-- Final Report -->
+    <div class="report-panel hidden" id="report-panel">
+      <div class="report-header">
+        <span>📄 Research Report</span>
+        <div class="report-actions">
+          <button onclick="copyReport()" class="btn-ghost">Copy</button>
+          <button onclick="resetApp()" class="btn-ghost">New Research</button>
+        </div>
+      </div>
+      <div class="report-content" id="report-content"></div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
